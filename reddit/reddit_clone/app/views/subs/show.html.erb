@@ -1,0 +1,20 @@
+<h2>Sub: <%= @sub.title %></h2>
+<a href="<%= edit_sub_url(@sub) %>">Edit Sub</a>
+
+<div class="description"">
+  <p><%= @sub.description %></p>
+</div>
+
+<a href="<%= new_post_url %>">Create a Post</a>
+<br>
+<a href="<%= subs_url %>">Back to All Subs</a>
+<br>
+<h3>All Posts</h3>
+<ul>
+    <% @sub.posts.each do |post| %>
+    <li>
+      <a href="<%= post_url(post) %>"><%= post.title %></a>
+      <span>Posted by: <%= post.author.username %>.</span>
+    </li>
+    <% end %>
+</ul>

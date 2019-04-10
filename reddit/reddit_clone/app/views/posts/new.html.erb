@@ -1,0 +1,25 @@
+<h2>Create New Post!</h2>
+
+<form action="<%= posts_url %>" method="post">
+    <%= auth %>
+    <label>Title
+      <input type="text" name="post[title]">
+    </label>
+    <label>URL
+      <input type="text" name="post[url]">
+    </label>
+    <br>
+    <label>Content
+      <textarea name="post[content]" cols="60" rows="5"><%= @post.content %></textarea>
+    </label>
+    <ul>
+      <% Sub.all.each do |sub| %>
+        <li>
+          <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>"><%=sub.title%>
+        </li>  
+      <% end %>
+    </ul>
+
+
+    <input type="submit" value="Create Post">
+</form>
